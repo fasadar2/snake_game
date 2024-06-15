@@ -1,5 +1,5 @@
 import pygame
-
+import copy
 from CollidableObject import CollidableObject
 from RenderObject import RenderObject
 
@@ -12,9 +12,9 @@ class Snake(CollidableObject,RenderObject):
         self.snake_length = 1
         self.vector_x = 0
         self.vector_y = 0
-        self.speed = 2
+        self.speed = 10
         # Начальная позиция головы змейки
-        self.head = pygame.Rect(200,200,15,15)
+        self.head = pygame.Rect(200,200,10,10)
 
     def move(self, x_change, y_change):
         """Обновление движения змейки"""
@@ -27,7 +27,7 @@ class Snake(CollidableObject,RenderObject):
         self.head.x += self.vector_x
         self.head.y += self.vector_y
         self.rect = self.head
-        self.snake_list.append(self.head)
+        self.snake_list.append(copy.copy(self.head))
         print(self.snake_list)
         # Удаление последнего блока тела, если длина змейки превышает заданную длину
         if len(self.snake_list) > self.snake_length:

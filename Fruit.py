@@ -1,5 +1,6 @@
 import pygame
 
+import SoundController
 import color
 import consts
 from CollidableObject import CollidableObject
@@ -20,4 +21,5 @@ class Fruit(CollidableObject, RenderObject):
         pygame.draw.rect(surface, self.color, self.rect)
 
     def destroy(self):
+        SoundController.fruit_eat.play()
         del self

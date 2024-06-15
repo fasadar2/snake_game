@@ -1,5 +1,6 @@
 import pygame
 
+import SoundController
 import color
 import consts
 from Fruit import Fruit
@@ -11,6 +12,7 @@ class SnakeGame:
 
     def __init__(self):
         pygame.init()
+        SoundController.main_music.play(-1)
         self.render = RenderEngine()
         self.clock = pygame.time.Clock()
         self.font_style = pygame.font.SysFont(None, 35)
