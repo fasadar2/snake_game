@@ -28,7 +28,6 @@ class Snake(CollidableObject,RenderObject):
         self.head.y += self.vector_y
         self.rect = self.head
         self.snake_list.append(copy.copy(self.head))
-        print(self.snake_list)
         # Удаление последнего блока тела, если длина змейки превышает заданную длину
         if len(self.snake_list) > self.snake_length:
             del self.snake_list[0]
